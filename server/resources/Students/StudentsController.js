@@ -23,3 +23,30 @@ exports.create = function (req, res) {
     res.send(student);
     })
 };
+
+exports.edit =function(req,res){
+  Students.findOne({_id:req.body.id}).exec(function (err,student){
+    if(err){
+    console.error(err);
+  }
+  if(!student){
+    console.error("No student found");
+  } else {
+    student.level = req.body.level;
+    student.save();
+    res.json("Updated");
+  }
+})
+}
+
+exports.deleteOne=function(req,res){
+  var id=req.params.id;
+  Students.findOneAndRemove({_id:id},function(err,deleted){
+
+  if(err){
+    console.log("error");
+   }
+
+  res.send(deleted)
+  })
+}
