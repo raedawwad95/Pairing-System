@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './components/Home.js';
+import Main from './components/Main.js';
+
+import {Route, BrowserRouter as Router} from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,9 +12,12 @@ class App extends React.Component {
   }
   render () {
     return (
-    <div className="container" style={{'margin-top': '10%'}}>
-      <Home />
-    </div>)
+    <Router>
+      <div className="container" style={{'margin-top': '10%'}}>
+      <Route exact path="/" component={Main}/>
+      </div>
+    </Router>
+    )
   }
 }
 ReactDOM.render(<App />, document.getElementById('root'));
