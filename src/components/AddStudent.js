@@ -68,6 +68,8 @@ $.ajax({
       <div className ="row justify-content-center">
       <div className="card text-center " style={{width: "50%" , 'backgroundImage' :'linear-gradient(#FEE8E8, #FADBDB, #F6E3E3)'}}>
         <div className="card-body">
+        <h3 className="text-center"> Add Student</h3>
+        <hr/>
             <input type="text" placeholder="Full Name" name="fullName" onChange={this.onChange}/>
             <input type="text" placeholder="Level(1-5)" name="level" onChange={this.onChange}/>
             <input type="submit" value="Add" onClick={this.addNewStudent} style={{'borderRadius': '25px', 'backgroundColor':'#D17E7E'}}/>
