@@ -2,8 +2,8 @@ var Pairing = require('./Pairing');
 
 exports.retrieve=function(req,res){
   Pairing.find({})
-  	.populate('Student1')
-  	.populate('Student2')
+  	.populate('student1','fullName')
+  	.populate('student2','fullName')
   	.exec(function(err,data){
   		if(err){
   			console.log(err);
@@ -17,8 +17,8 @@ exports.retrieve=function(req,res){
 
 exports.create=function(req,res){
 	var newPairing = {
-		Student1:req.body.student1,
-		Student2:req.body.student2
+		student1:req.body.student1,
+		student2:req.body.student2
 	}
 	var pairing = new Pairing(newPairing);
 	pairing.save(function(err,data){

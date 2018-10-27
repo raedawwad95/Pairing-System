@@ -1,8 +1,12 @@
-var PairingRouter = require("express").Router();
+var pairingRouter = require("express").Router();
 
-var PairingController = require('./PairingController');
+var pairingController = require('./PairingController');
 
-PairingRouter.route('/')
+pairingRouter.route('/')
 	.get(function(req,res){
-		PairingRouter.retrieve(req,res);
+		pairingController.retrieve(req,res);
 	})
+	.post(function(req,res){
+		pairingController.create(req,res);
+	})
+module.exports = pairingRouter;
