@@ -4,7 +4,7 @@ var PairingSchema = mongoose.Schema({
 	Students1:{
 		type: mongoose.Schema.Types.ObjectId, 
 	    ref: 'Students'
-	}
+	},
 	Students2:{
 		type: mongoose.Schema.Types.ObjectId, 
 	    ref: 'Students'
