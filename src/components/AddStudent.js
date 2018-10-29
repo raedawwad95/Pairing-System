@@ -7,6 +7,7 @@ class AddStudent extends React.Component {
     super(props);
     this.onChange = this.onChange.bind(this);
     this.addNewStudent = this.addNewStudent.bind(this);
+    this.fetchData = this.fetchData.bind(this);
     this.state={
     students:[],
     fullName:'',
@@ -34,11 +35,14 @@ $.ajax({
     error:function(err){
       console.log(err)
     }
-
-
-})
+  })
+this.fetchData();
 }
-  componentDidMount() {
+componentDidMount() {
+  this.fetchData();
+
+}
+fetchData(){
   var that=this;
   $.ajax({
   type:'GET',
@@ -49,10 +53,8 @@ $.ajax({
       })
     }
   });
-
 }
   edit(id){
-    console.log(id)
   var that =this;
   $.ajax({
   type:'put',
@@ -61,7 +63,8 @@ $.ajax({
     success:function(data){
       alert('Edit Student')
     }
-  });   
+  }); 
+  this.fetchData();  
   }
   delete(id){
   $.ajax({
@@ -70,7 +73,8 @@ $.ajax({
     success:function(data){
       alert('Delete Student')
     }
-  });   
+  });  
+  this.fetchData(); 
   }
 
   editId(id){
@@ -82,7 +86,7 @@ $.ajax({
   render() {
     return ( 
       <div className ="row justify-content-center">
-      <div className="card text-center " style={{width: "50%" , 'backgroundImage' :'linear-gradient(#FEE8E8, #FADBDB, #F6E3E3)'}}>
+      <div className="card text-center " style={{width: "50%" , 'backgroundImage' :'linear-gradient(#FEE8E8, #FADBDB, #F6E3E3)', marginBottom:'10%'}}>
         <div className="card-body">
         <h3 className="text-center"> Add Student</h3>
         <hr/>
