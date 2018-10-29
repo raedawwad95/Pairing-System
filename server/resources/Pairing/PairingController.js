@@ -1,18 +1,13 @@
 var Pairing = require('./Pairing');
 
 exports.retrieve=function(req,res){
-  Pairing.find({})
-  	.populate('student1','fullName')
-  	.populate('student2','fullName')
-  	.exec(function(err,data){
-  		if(err){
+  Pairing.find({},function(err,data){
+  	if(err){
   			console.log(err);
-  		}else if(!data){
-  			res.json('there is no Data');
   		}else{
   			res.json(data);
   		}
-  	})
+  })
 }
 
 exports.create=function(req,res){

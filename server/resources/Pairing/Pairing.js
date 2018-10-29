@@ -2,13 +2,11 @@ var mongoose =require('mongoose');
 
 var PairingSchema = mongoose.Schema({
 	student1:{
-		type: mongoose.Schema.Types.ObjectId, 
-	    ref: 'Students',
+		type: String,
 	    required:true,
 	},
 	student2:{
-		type: mongoose.Schema.Types.ObjectId, 
-	    ref: 'Students',
+		type: String,
 	    required:true,
 	}
 })

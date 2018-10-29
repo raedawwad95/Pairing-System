@@ -40,8 +40,8 @@ class History extends React.Component {
               {this.state.students.map((item,index)=>{
                 return(
                   <tr key={index}>
-                  <td>{item.student1.fullName}</td>
-                  <td>{item.student2.fullName}</td>
+                  <td>{item.student1}</td>
+                  <td>{item.student2}</td>
                   </tr>
                   )
               })} 

@@ -32,7 +32,7 @@ savePairing(){
     $.ajax({
     type:'POST',
     url:'/pairing',
-    data:{student1:this.state.student1[i]._id,student2:this.state.student2[i]._id},
+    data:{student1:this.state.student1[i].fullName,student2:this.state.student2[i].fullName},
     success:function(data){
       console.log(data)
     }
